@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>icn::search</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="search::normal" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-488.000000, 0.000000)" opacity="0.5">
+        <g id="Search::normal">
+            <g id="icn::search" transform="translate(488.000000, 0.000000)">
+                <g>
+                    <path d="M47.8944,24 C47.8944,37.1904284 37.1904284,47.8944 24,47.8944 C10.8095716,47.8944 0.1056,37.1904284 0.1056,24 C0.1056,10.8095716 10.8095716,0.1056 24,0.1056 C37.1904284,0.1056 47.8944,10.8095716 47.8944,24 Z" id="Shape" fill="#60BDC0"></path>
+                    <g id="magnifier" transform="translate(12.480000, 12.480000)" stroke="#FFFFFF">
+                        <ellipse id="Oval" cx="13.5824041" cy="9.4464" rx="9.40456266" ry="9.42867692"></ellipse>
+                        <path d="M6.75290026,16.2993231 L0.0412480818,23.0222769" id="Shape" stroke-width="3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,7 +1,27 @@
+// FONT
+$OPEN_SANS: 'Open Sans', sans-serif;
+
 // COLOURS
-$BACKGROUND: #FFF;
+$TEXT_MAIN: #FFF;
+$TEXT_DARK: #232A2A;
 $PRIMARY: #60BDC0;
 $YELLOW: #D6A94E;
 $BROWN: #756357;
 $ERROR: #A54C48;
+
+// BREAKPOINTS
+$mobile: 480px; // mobile 767px and less
+$tabletH: 768px; // tablet vertical 767px and less
+$tabletW: 992px; // tablet horizontal 1023px {desctop - 1} and less
+$desktop: 1225px;
+$desktopLg: 1440px;
+$retina: 1.5;  // standart retina > 1.5x
+$retina-hd: 2.5; // hd retina > 2.5x
+
+// Z-INDEX
+$LAYER_1: 5;
+$LAYER_2: 10;
+$LAYER_3: 15;
+$LAYER_4: 20;
+$LAYER_5: 25;
 

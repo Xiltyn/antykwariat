@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+
+html,
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+section,
+header,
+span,
+button,
+label,
+input,
+input::placeholder {
+  font-family: $OPEN_SANS;
+}
+
+h1, .h1 {
+  font-size: 3.6rem;
+  font-weight: 800;
+  letter-spacing: -.2rem;
+}
+
+h2, .h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -.15rem;
+}
+
+h3, .h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -.1rem;
+}
+
+h4, .h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -.05rem;
+}
+
+p, .p {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+input,
+input::placeholder,
+label {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.intro {
+  font-style: italic;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+blockquote, .quote {
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 2.4rem;
+}
+
+.small-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+}
+
+
