@@ -12,109 +12,122 @@
         color: rgba($PRIMARY, .7);
       }
     }
-  }
 
-  &-gallery {
-    position: relative;
-    overflow: hidden;
-    z-index: $LAYER_3;
-    .cards {
+    .gallery {
       position: relative;
-      width: 120vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      .card {
+      overflow: hidden;
+      z-index: $LAYER_3;
+      padding: 1.6rem 0;
+      margin-top: -1.6rem;
+
+      @media screen and ( min-height: 800px ) {
+        padding: 5% 0;
+        margin-top: 0;
+      }
+
+      @media screen and ( min-height: 1000px ) {
+        padding: 10% 0;
+        margin-top: 0;
+      }
+
+      .cards {
         position: relative;
-        height: 500px;
-        width: 320px;
-
+        width: 2200px;
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: space-around;
+        .card {
+          position: relative;
+          height: 500px;
+          width: 320px;
 
-        box-shadow: 0 0 16px 0 rgba( $TEXT_DARK, .3 );
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: space-between;
 
-        overflow: hidden;
+          box-shadow: 0 0 16px 0 rgba( $TEXT_DARK, .3 );
 
-        .header {
-          width: 100%;
-          height: 30%;
-          background: $TEXT_DARK;
           overflow: hidden;
 
-          img {
+          .header {
             width: 100%;
-            margin-top: -3.2rem;
-          }
+            height: 30%;
+            background: $TEXT_DARK;
+            overflow: hidden;
 
-        }
-        .content {
-          position: absolute;
-          height: 60%;
-          width: 102%;
-          top: 50%;
-          margin-left: 1%;
-          transform: translateY( -50% );
-          z-index: $LAYER_4;
-          * {
-            z-index: $LAYER_5;
-          }
-
-          .info-box {
-            height: 100%;
-            position: relative;
-            padding: 8rem 1.6rem 0;
-            box-sizing: border-box;
-
-            h3 {
-              padding-bottom: 2.4rem;
-              color: $TEXT_GREY;
+            img {
+              width: 100%;
+              margin-top: -3.2rem;
             }
-            p {
-              color: $TEXT_GREY;
-            }
-          }
 
-          .icn-buy {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate( -50%, 0 );
           }
-
-          .bg-shape {
+          .content {
             position: absolute;
-            height: auto;
+            height: 60%;
             width: 102%;
+            top: 50%;
+            margin-left: 1%;
+            transform: translateY( -50% );
             z-index: $LAYER_4;
-          }
-        }
-        .footer {
-          position: relative;
-          width: 100%;
-          height: 30%;
-          background: linear-gradient(to right, rgba(#8badd7,1) -20%,rgba(120,96,192,1) 140%);
+            * {
+              z-index: $LAYER_5;
+            }
 
-          .taglist {
-            padding: 7.2rem 1.6rem 0;
-            li {
-              color: $TEXT_MAIN;
-              font-size: 1.2rem;
-              text-transform: capitalize;
+            .info-box {
+              height: 100%;
+              position: relative;
+              padding: 8rem 1.6rem 0;
+              box-sizing: border-box;
 
-              &:before {
-                content: '>';
-                padding-right: .4rem;
+              h3 {
+                padding-bottom: 2.4rem;
+                color: $TEXT_GREY;
+              }
+              p {
+                color: $TEXT_GREY;
               }
             }
-          }
 
-          .icn-wishlist {
-            position: absolute;
-            bottom: 1.2rem;
-            right: 1.2rem;
+            .icn-buy {
+              position: absolute;
+              left: 50%;
+              top: 0;
+              transform: translate( -50%, 0 );
+            }
+
+            .bg-shape {
+              position: absolute;
+              height: auto;
+              width: 102%;
+              z-index: $LAYER_4;
+            }
+          }
+          .footer {
+            position: relative;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to right, rgba(#8badd7,1) -20%,rgba(120,96,192,1) 140%);
+
+            .taglist {
+              padding: 7.2rem 1.6rem 0;
+              li {
+                color: $TEXT_MAIN;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+
+                &:before {
+                  content: '>';
+                  padding-right: .4rem;
+                }
+              }
+            }
+
+            .icn-wishlist {
+              position: absolute;
+              bottom: 1.2rem;
+              right: 1.2rem;
+            }
           }
         }
       }
