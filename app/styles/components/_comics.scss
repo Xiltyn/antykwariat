@@ -1,71 +1,60 @@
-.favorites {
+.comics {
   position: relative;
+  width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, rgba(31,210,250,0.46) 40%,rgba(120,96,192,1) 100%);;
+  background: url('./../../images/comic_example.png');
+  background-size: cover;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(#7860C0, 1) 0%, rgba(#7860C0, 1) 2%, rgba(#7860C0, .9) 10%, rgba(#7860C0, .6) 35%, rgba(#A54C48,.5) 100%);
+    z-index: $LAYER_1;
+  }
+
   &-wrapper {
     position: relative;
-    z-index: $LAYER_2;
-
-    .gallery-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 8rem;
-      padding: 0 4rem;
-      margin-top: -4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-sizing: border-box;
-      z-index: $LAYER_5;
-
-      svg {
-        cursor: pointer;
-        height: 100%;
-        width: auto;
-      }
-      .left {
-        transform: rotate(180deg);
-      }
-
-    }
+    z-index: $LAYER_3;
 
     h2 {
-      color: rgba($TEXT_DARK, .7);
+      color: rgba($TEXT_MAIN, .7);
       span {
-        color: rgba($PRIMARY, .7);
+        color: rgba(#BEA4FF, .7);
+        margin-left: -2.4rem;
       }
     }
 
-    .gallery {
-      position: relative;
-      overflow: hidden;
-      z-index: $LAYER_3;
-      padding: 1.6rem 0;
-      margin-top: -1.6rem;
+    .content {
+      width: 100%;
+      display: flex;
+      padding: 3.2rem;
+      box-sizing: border-box;
 
-      @media screen and ( min-height: 800px ) {
-        padding: 5% 0;
-        margin-top: 0;
+      .excerpt,
+      .details {
+        width: 50%;
+        padding: 1.6rem;
+        box-sizing: border-box;
       }
 
-      @media screen and ( min-height: 1000px ) {
-        padding: 10% 0;
-        margin-top: 0;
+      .excerpt {
+        font-size: 2.4rem;
+        line-height: 3.2rem;
+        color: $TEXT_MAIN;
       }
 
-      .cards {
-        position: relative;
-        width: 2200px;
+      .details {
         display: flex;
-        align-items: center;
         justify-content: space-around;
+
         .card {
           position: relative;
-          height: 500px;
-          width: 320px;
-          opacity: .7;
-          transform: scale(.95);
+          height: 360px;
+          width: 400px;
 
           display: flex;
           flex-direction: column;
@@ -75,13 +64,6 @@
           box-shadow: 0 0 16px 0 rgba( $TEXT_DARK, .3 );
 
           overflow: hidden;
-
-          transition: all .5s ease-in-out;
-
-          &.active {
-            opacity: 1;
-            transform: scale(1);
-          }
 
           .header {
             width: 100%;
@@ -133,6 +115,7 @@
               position: absolute;
               height: auto;
               width: 102%;
+              top: 0;
               z-index: $LAYER_4;
             }
           }
@@ -180,12 +163,12 @@
 
   .bg-shape {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     height: auto;
     min-height: 240px;
     min-width: 100%;
     max-width: 100%;
-    z-index: $LAYER_1;
+    z-index: $LAYER_2;
   }
 }
