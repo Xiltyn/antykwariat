@@ -5,9 +5,12 @@
 @import "core/typography";
 
 // COMPONENTS
+@import "components/header";
 @import "components/hero";
 @import "components/favorites";
 @import "components/comics";
+@import "components/comments";
+@import "components/footer";
 
 html, body {
   font-size: 62.5%;

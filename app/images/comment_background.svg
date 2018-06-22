@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="408px" height="152px" viewBox="0 0 408 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="400" height="144"></rect>
+        <filter x="-1.5%" y="-4.2%" width="103.0%" height="108.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.278431373   0 0 0 0 0.317647059   0 0 0 0 0.317647059  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="100%" y1="50%" x2="-2.71834567e-14%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#60BDC0" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#53D78B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="19.2015005%" y1="1.74562304%" x2="42.3098355%" y2="86.1356173%" id="linearGradient-4">
+            <stop stop-color="#53D78B" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#60BDC0" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-::-Testimonials" transform="translate(-830.000000, -306.000000)">
+            <g id="comments{:easeInOutCubic;1,834,-42,400,1376,360,1;20,834,-792,400,1376,360,1;50,834,720,400,1376,360,1;69,834,-42,400,1376,360,1;}" transform="translate(755.000000, 0.000000)">
+                <g transform="translate(79.000000, -42.000000)" id="card_comic-copy-6">
+                    <g transform="translate(0.000000, 352.000000)">
+                        <g id="Group-4">
+                            <g id="Rectangle">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            </g>
+                            <path d="M396.494335,138 C393.563058,141.657786 389.056195,144 383.995194,144 L16.0048064,144 C10.9505363,144 6.44346534,141.657162 3.51034173,138 L396.494335,138 Z" id="Combined-Shape"></path>
+                            <path d="M400,14.0723795 C349.535942,-2.21549443 117.376725,11.7602175 1.46549439e-14,26.5614136 L0,0 L400,0 L400,14.0723795 Z" id="Combined-Shape" fill-opacity="0.5" fill="url(#linearGradient-3)"></path>
+                            <path d="M400,131.072379 C349.535942,114.784506 117.376725,128.760217 1.46549439e-14,143.561414 L0,117 L400,117 L400,131.072379 Z" id="Combined-Shape-Copy" fill-opacity="0.5" fill="url(#linearGradient-4)" transform="translate(199.940395, 130.280707) scale(-1, -1) translate(-199.940395, -130.280707) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

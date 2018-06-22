@@ -3,7 +3,17 @@
 class App {
 
   static initializeApp = () => {
-    Home.initializeHome()
+    Home.initializeHome();
+    App.handleScrollButtons();
+  };
+
+  static handleScrollButtons = () => {
+    const $ScrollButtons = $( '.scroll-btn' );
+
+    $ScrollButtons.on( 'click', function( evt ) {
+      $("html, body").animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000);
+
+    });
   }
 
 }
