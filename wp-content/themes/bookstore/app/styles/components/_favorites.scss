@@ -1,0 +1,191 @@
+.favorites {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(to bottom, rgba(31,210,250,0.46) 40%,rgba(120,96,192,1) 100%);;
+  &-wrapper {
+    position: relative;
+    z-index: $LAYER_2;
+
+    .gallery-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      height: 8rem;
+      padding: 0 4rem;
+      margin-top: -4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      z-index: $LAYER_5;
+
+      svg {
+        cursor: pointer;
+        height: 100%;
+        width: auto;
+      }
+      .left {
+        transform: rotate(180deg);
+      }
+
+    }
+
+    h2 {
+      color: rgba($TEXT_DARK, .7);
+      span {
+        color: rgba($PRIMARY, .7);
+      }
+    }
+
+    .gallery {
+      position: relative;
+      overflow: hidden;
+      z-index: $LAYER_3;
+      padding: 1.6rem 0;
+      margin-top: -1.6rem;
+
+      @media screen and ( min-height: 800px ) {
+        padding: 5% 0;
+        margin-top: 0;
+      }
+
+      @media screen and ( min-height: 1000px ) {
+        padding: 10% 0;
+        margin-top: 0;
+      }
+
+      .cards {
+        position: relative;
+        width: 2200px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        .card {
+          position: relative;
+          height: 500px;
+          width: 320px;
+          opacity: .7;
+          transform: scale(.95);
+
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          justify-content: space-between;
+
+          box-shadow: 0 0 16px 0 rgba( $TEXT_DARK, .3 );
+
+          overflow: hidden;
+
+          transition: all .5s ease-in-out;
+
+          &.active {
+            opacity: 1;
+            transform: scale(1);
+          }
+
+          .header {
+            width: 100%;
+            height: 30%;
+            background: $TEXT_DARK;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+              margin-top: -3.2rem;
+            }
+
+          }
+          .content {
+            position: absolute;
+            height: 60%;
+            width: 102%;
+            top: 50%;
+            margin-left: 1%;
+            transform: translateY( -50% );
+            z-index: $LAYER_4;
+            * {
+              z-index: $LAYER_5;
+            }
+
+            .info-box {
+              height: 100%;
+              position: relative;
+              padding: 8rem 1.6rem 0;
+              box-sizing: border-box;
+
+              h3 {
+                padding-bottom: 2.4rem;
+                color: $TEXT_GREY;
+              }
+              p {
+                color: $TEXT_GREY;
+              }
+            }
+
+            .icn-buy {
+              position: absolute;
+              left: 50%;
+              top: 0;
+              transform: translate( -50%, 0 );
+            }
+
+            .bg-shape {
+              position: absolute;
+              height: auto;
+              width: 102%;
+              z-index: $LAYER_4;
+            }
+          }
+          .footer {
+            position: relative;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to right, rgba(#8badd7,1) -20%,rgba(120,96,192,1) 140%);
+
+            .taglist {
+              padding: 7.2rem 1.6rem 0;
+              li {
+                color: $TEXT_MAIN;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+
+                &:before {
+                  content: '>';
+                  padding-right: .4rem;
+                }
+              }
+            }
+
+            .icn-wishlist {
+              position: absolute;
+              bottom: 1.2rem;
+              right: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 1.6rem;
+    left: 50%;
+    opacity: 1;
+    cursor: pointer;
+    transform: translateX( -50% );
+    transition: .3s all ease-in-out;
+    z-index: $LAYER_2;
+  }
+
+  .bg-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    min-height: 240px;
+    min-width: 100%;
+    max-width: 100%;
+    z-index: $LAYER_1;
+  }
+}
