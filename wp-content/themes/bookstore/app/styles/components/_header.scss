@@ -14,55 +14,69 @@
   z-index: 300;
   box-shadow: 0 0 16px 0 rgba( $TEXT_DARK, .3 );
 
-  .main-nav {
+  &.shop {
+    background: $BROWN;
+  }
+
+  .menu-main-container {
     width: 50%;
+  }
+
+  .main-nav {
     height: 100%;
-    max-width: 300px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
 
-    &-element {
-      position: relative;
-      text-align: center;
-      height: 100%;
+    li {
       width: 25%;
-      cursor: pointer;
-      font-size: 1.2rem;
-      line-height: 4rem;
-      letter-spacing: .1rem;
-      font-weight: 600;
-      color: rgba(#FFF,.7);
-      transition: all .3s ease-in-out;
-
-      &:hover {
-        color: #FFF;
-
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      a {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        letter-spacing: .1rem;
+        font-weight: 600;
+        color: rgba(#FFF,.7);
+        transition: all .3s ease-in-out;
         &:after {
-          top: -4.4rem;
+          content:'';
+          position: absolute;
+          top: -8rem;
+          left: 0;
+          height: 40px;
+          width: 100%;
+          border-radius: 50%;
+          background: rgba(#FFF, .6);
+          transition: all .3s ease-in-out;
+          z-index: $LAYER_3;
         }
       }
+      &:hover {
+        a {
+          color: #FFF;
 
-      &:after {
-        content:'';
-        position: absolute;
-        top: -8rem;
-        left: 0;
-        height: 40px;
-        width: 100%;
-        border-radius: 50%;
-        background: rgba(#FFF, .6);
-        transition: all .3s ease-in-out;
-        z-index: $LAYER_3;
+          &:after {
+            top: -4.4rem;
+          }
+        }
       }
 
       &.active {
-        color: #FFF;
+        a {
+          color: #FFF;
 
-        &:after {
-          top: -3.6rem;
+          &:after {
+            top: -3.6rem;
+          }
         }
-
       }
     }
   }

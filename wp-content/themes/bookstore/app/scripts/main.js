@@ -5,6 +5,7 @@ class App {
   static initializeApp = () => {
     Home.initializeHome();
     App.handleScrollButtons();
+    Shop.initializeShop();
   };
 
   static handleScrollButtons = () => {
@@ -141,6 +142,30 @@ class Home {
         arrows.right.on( 'click', () => updatePosition( Home.activePosition - 1, 'right' ) )
       }
     }
+  }
+
+}
+
+class Shop {
+
+  static _LOCALE = {
+    search: {
+      placeholder: 'Czego szukasz?'
+    }
+  }
+
+  static initializeShop = () => {
+    Shop.setSearchPlaceholder(Shop._LOCALE.search.placeholder);
+  }
+
+  static setSearchPlaceholder = (string, options = { debug: false }) => {
+    const searchField = $('.search-field');
+
+    if(options.debug) {
+      console.log( '==> Shop.setSearchPlaceholder |> function data :: ', { string: string, searchField: searchField } );  
+    }
+
+    searchField.attr('placeholder', string);
   }
 
 }

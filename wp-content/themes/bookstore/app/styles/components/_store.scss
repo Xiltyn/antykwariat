@@ -1,0 +1,371 @@
+.bookstore-shop {
+  padding: 3.2rem 0 9.6rem;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  background-image: url('images/shop_shapebg.svg');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 45.9% auto;
+
+  .site-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .woocommerce-breadcrumb {
+    width: 100%;
+    color: $TEXT_DARK;
+    text-transform: uppercase;
+    a {
+      font-weight: 800;
+      color: $BROWN;
+    }
+  }
+
+  .woocommerce-products-header {
+    width: 100%;
+    text-align: center;
+  }
+
+  .woocommerce-result-count,
+  form {
+    width: 50%;
+
+    select {
+      float: right;
+      appearance: none;
+      border: 2px solid $TEXT_GREY;
+      border-radius: 0;
+      background: $TEXT_MAIN;
+      padding: .4rem 2.4rem .4rem .8rem;
+      margin-bottom: .8rem;
+      color: $TEXT_GREY;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.4rem;
+      text-transform: capitalize;
+
+      outline: none;
+      transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+      select {
+        border-color: $PRIMARY;
+        color: $PRIMARY
+      }
+
+      &:before,
+      &:after {
+        background-color: $PRIMARY;
+      }
+    }
+  }
+
+  .woocommerce-result-count {
+    color: $TEXT_GREY;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4rem;
+  }
+
+  form {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 1rem;
+      height: .2rem;
+      top: 1.2rem;
+      background-color: $TEXT_GREY;
+      transition: background-color .3s ease-in-out;
+    }
+
+    &:after {
+      right: 1.6rem;
+      transform: rotate(45deg);
+    }
+    &:before {
+      right: 1rem;
+      transform: rotate(-45deg);
+    }
+  }
+
+
+  .shop-header {
+    color: #475151;
+    transform: translateX(10%);
+    span {
+      color: $BROWN;
+      margin-left: -2rem;
+      opacity: .8;
+    }
+  }
+
+  .content-area {
+    width: 100%;
+    padding-right: 3.2rem;
+    max-width: 774px;
+
+    ul.products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      padding-top: 3.2rem;
+      li {
+        position: relative;
+
+        width: 30%;
+        min-width: 248px;
+        margin-bottom: 1.6rem;
+        height: 230px;
+        overflow: hidden;
+        background-color: $TEXT_GREY;
+        box-shadow: 0 0 2.4rem -.3rem $TEXT_DARK;
+
+        .onsale {
+          position: absolute;
+        }
+
+        .woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+          height: 100%;
+          color: $TEXT_MAIN;
+          font-size: 1.4rem;
+          font-weight: 400;
+          line-height: 2rem;
+          letter-spacing: normal;
+
+          .image-wrapper {
+            height: 50%;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 2px 3px 0 rgba($TEXT_DARK, .3);
+
+            img {
+              width: 100%;
+              height: auto;
+              margin-top: calc(-50% + 62px);
+            }
+          }
+
+          .woocommerce-loop-product__title {
+            color: $TEXT_MAIN;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 2rem;
+            letter-spacing: normal;
+
+          }
+
+          .price {
+            position: relative;
+            padding-left: 3.2rem;
+
+            font-size: 1.8rem;
+            font-weight: 200;
+            line-height: 1.8rem;
+
+            &:before {
+              content: url('images/icn-pricetag_white.svg');
+
+              position: absolute;
+              top: -.4rem;
+              left: -.4rem;
+              width: 1.8rem;
+              height: 1.8rem;
+            }
+          }
+        }
+
+        .information-wrapper {
+          position: relative;
+          height: 50%;
+
+          padding: 3.2rem .8rem .8rem;
+          box-sizing: border-box;
+
+          .woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+
+          .add_to_cart_button {
+            position: absolute;
+            content: url('images/icn-addToCart.svg');
+
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            border: 2px solid $TEXT_MAIN;
+            box-sizing: border-box;
+
+            opacity: .7;
+            transition: opacity .3s ease-in-out;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  aside {
+    width: 176px;
+    padding: .8rem 1.2rem;
+    margin-top: 12rem;
+    overflow: hidden;
+    box-shadow: 0 0 6px 0 rgba($TEXT_DARK, .3);
+
+    section {
+      padding-bottom: .8rem;
+      margin-bottom: .8rem;
+      border-bottom: 2px dashed rgba($TEXT_GREY, .3);
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      ul {
+        width: 100%;
+        li {
+          position: relative;
+          padding: .2rem 0;
+          margin-bottom: .2rem;
+          width: 100%;
+          a {
+            width: 100%;
+            color: $TEXT_GREY;
+            font-size: 1rem;
+            font-weight: 600;
+
+            transition: all .3s ease-in-out;
+          }
+          &:after {
+            position: absolute;
+
+            content: '';
+            height: 1px;
+            width: 0px;
+            left: 50%;
+            bottom: 0;
+            background: $PRIMARY;
+
+            transition: all .3s ease-in-out;
+          }
+          &:hover {
+            a {
+              color: $PRIMARY;
+            }
+
+            &:after {
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
+      }
+
+      &.widget_search {
+        form {
+          width: 100%;
+
+          &:before,
+          &:after {
+            display: none;
+          }
+          label {
+            span {
+              display: none;
+            }
+            input {
+              position: relative;
+              display: block;
+              width: 100%;
+              height: 100%;
+              padding: .4rem .8rem;
+              margin-bottom: .8rem;
+              color: $PRIMARY;
+              font-weight: 600;
+              outline: none;
+              background: $TEXT_MAIN;
+              border: none;
+              border: 2px solid rgba($TEXT_GREY, .7);
+              box-sizing: border-box;
+              box-shadow: 0 0 6px 0 rgba($PRIMARY, 0);
+              transition: .3s all ease-in-out;
+
+              &::placeholder {
+                color: rgba($TEXT_GREY,.7);
+                font-weight: 600;
+                transition: color .3s ease-in-out;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+              }
+
+              &:hover,
+              &:active,
+              &:focus {
+                outline: none;
+                box-shadow: 0 0 6px 0 rgba($PRIMARY, .3);
+                border: 2px solid $PRIMARY;
+
+                &::placeholder {
+                  color: $PRIMARY;
+                }
+              }
+            }
+          }
+          .search-submit {
+            position: relative;
+            width: 100%;
+            padding: .4rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba($TEXT_GREY, .7);
+            background-color: $TEXT_MAIN;
+            border-radius: 0;
+            transition: all .3s ease-in-out;
+            z-index: 200;
+            &:hover {
+              background-color: $PRIMARY;
+              color: $TEXT_MAIN;
+            }
+          }
+        }
+      }
+
+      h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: normal;
+        color: $TEXT_GREY;
+        padding-bottom: .8rem;
+      }
+
+    }
+
+    // display: none;
+  }
+}

@@ -12,9 +12,15 @@
 @import "components/comments";
 @import "components/footer";
 
+@import "components/store";
+
 html, body {
   font-size: 62.5%;
   width: 100vw;
   overflow-x: hidden;
   background: $TEXT_MAIN;
+  -webkit-text-size-adjust: 100%;
+  	-ms-text-size-adjust: 100%;
+  	-webkit-font-smoothing: antialiased;
+
 }

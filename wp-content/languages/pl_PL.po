@@ -8029,7 +8029,7 @@ msgstr "Szukaj:"
 #: wp-includes/general-template.php:213
 msgctxt "placeholder"
 msgid "Search &hellip;"
-msgstr "Szukaj &hellip;"
+msgstr "Wpisz wyszukiwaną frazę"
 
 #: wp-includes/functions.php:5329 wp-includes/script-loader.php:569
 msgid "Session expired"

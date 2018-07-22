@@ -9,6 +9,9 @@
  * @package antykwariat
  */
 
+ global $post;
+ $thePostID=$post->ID;
+
 ?>
 <!doctype html>
 <html lang="">
@@ -27,16 +30,29 @@
 
 
 <!-- HERO -->
-  <header class="main-header">
+  <header class=<?php
+    echo '"main-header'.($thePostID==9 ? ' shop"' : '"');
+  ?>>
     <div class="logo-container small-text">
       LOGO
     </div>
-    <ul class="main-nav small-text">
+
+
+    <!-- <ul class="main-nav small-text">
       <li class="main-nav-element active">Główna</li>
       <li class="main-nav-element">Kontakt</li>
       <li class="main-nav-element">O Nas</li>
       <li class="main-nav-element">Sklep</li>
-    </ul>
+    </ul> -->
+
+    <?php
+
+      wp_nav_menu(array(
+        'menu_class' => 'main-nav small-text',
+      ));
+
+    ?>
+
     <div class="cart-widget small-text">
       11.87,-
     </div>

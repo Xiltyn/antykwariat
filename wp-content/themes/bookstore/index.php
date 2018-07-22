@@ -24,7 +24,9 @@ get_header();
 			if ( is_home() && ! is_front_page() ) :
 				?>
 				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					<h2 class="section-header shop-header">
+			 		 Nasz <span><?php single_post_title(); ?></span>
+			 	 </h2>
 				</header>
 				<?php
 			endif;

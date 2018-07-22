@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="39px" height="77px" viewBox="0 0 39 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="-2.22044605e-14%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#60BDC0" stop-opacity="0.5" offset="0%"></stop>
+            <stop stop-color="#53D78B" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
+        <g id="Desktop-HD-::-Comics" transform="translate(-1323.000000, -260.000000)" fill="url(#linearGradient-1)">
+            <polygon id="Shape-Copy" transform="translate(1342.133333, 298.265333) scale(-1, 1) translate(-1342.133333, -298.265333) " points="1361.26667 336.530667 1323 298.266667 1361.26667 260"></polygon>
+        </g>
+    </g>
+</svg>

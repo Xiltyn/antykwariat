@@ -24,8 +24,8 @@ gulp.task('styles', () => {
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(rename('style.css'))
-    .pipe(gulp.dest(''));
-    // .pipe(reload({stream: true}));
+    .pipe(gulp.dest(''))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('scripts', () => {
@@ -34,7 +34,8 @@ gulp.task('scripts', () => {
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
     .pipe($.if(dev, $.sourcemaps.write('.')))
-    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(rename('main.js'))
+    .pipe(gulp.dest('js'))
     .pipe(reload({stream: true}));
 });
 
@@ -82,7 +83,7 @@ gulp.task('images', () => {
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
-    .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
+    .pipe(gulp.dest('fonts'));
 });
 
 gulp.task('extras', () => {
@@ -149,6 +150,22 @@ gulp.task('serve:test', ['scripts'], () => {
   gulp.watch('app/scripts/**/*.js', ['scripts']);
   gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
+});
+
+gulp.task('wp:watch', () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts']);
+
+    gulp.watch([
+      'app/*.html',
+      'app/images/**/*',
+      '.tmp/fonts/**/*'
+    ]).on('change', reload);
+
+    gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/fonts/**/*', ['fonts']);
+    gulp.watch('bower.json', ['wiredep', 'fonts']);
+
 });
 
 // inject bower components

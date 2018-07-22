@@ -10,6 +10,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   App.initializeApp = function () {
     Home.initializeHome();
     App.handleScrollButtons();
+    Shop.initializeShop();
   };
 
   App.handleScrollButtons = function () {
@@ -165,6 +166,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
   };
 
+  var Shop = function Shop() {
+    _classCallCheck(this, Shop);
+  };
+
+  Shop._LOCALE = {
+    search: {
+      placeholder: 'Czego szukasz?'
+    }
+  };
+
+  Shop.initializeShop = function () {
+    Shop.setSearchPlaceholder(Shop._LOCALE.search.placeholder);
+  };
+
+  Shop.setSearchPlaceholder = function (string) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { debug: false };
+
+    var searchField = $('.search-field');
+
+    if (options.debug) {
+      console.log('==> Shop.setSearchPlaceholder |> function data :: ', { string: string, searchField: searchField });
+    }
+
+    searchField.attr('placeholder', string);
+  };
 
   App.initializeApp();
 })(window.$);

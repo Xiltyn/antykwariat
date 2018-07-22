@@ -44,6 +44,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				 */
 				do_action( 'woocommerce_before_shop_loop_item_title' ); ?>
 		</div>
+		<div class="information-wrapper">
+		<div class="product-data">
 	<?php
 
 	/**
@@ -52,6 +54,22 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 * @hooked woocommerce_template_loop_product_title - 10
 	 */
 	do_action( 'woocommerce_shop_loop_item_title' );
+
+	?>
+
+	<div class="author">
+		<?php
+			global $product;
+			$size = array_shift( wc_get_product_terms( $product->id, 'pa_size', array( 'fields' => 'names' ) ) );
+
+			echo '<span class="author">'.$product->get_attribute('author_firstname').'</span> ';
+			echo '<span class="author">'.$product->get_attribute('author_surname').'</span>';
+
+		?>
+	</div>
+</div>
+
+	<?php
 
 	/**
 	 * Hook: woocommerce_after_shop_loop_item_title.
@@ -69,5 +87,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
+
+	</div>
 
 </li>

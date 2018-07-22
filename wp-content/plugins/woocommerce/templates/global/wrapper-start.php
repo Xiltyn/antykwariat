@@ -44,6 +44,9 @@ switch ( $template ) {
 	case 'twentysixteen' :
 		echo '<div id="primary" class="content-area twentysixteen"><main id="main" class="site-main" role="main">';
 		break;
+	case 'bookstore' :
+		echo '<div id="primary" class="content-area"><main id="main" class="bookstore-main site-main" role="main">';
+		break;
 	default :
 		echo '<div id="primary" class="content-area"><main id="main" class="site-main" role="main">';
 		break;

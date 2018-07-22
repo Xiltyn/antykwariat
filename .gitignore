@@ -4,3 +4,5 @@ wp-content/themes/bookstore/.tmp
 wp-content/themes/bookstore/bower_components
 wp-content/themes/bookstore/test/bower_components
 .idea
+.htaccess
+wp-config.php
