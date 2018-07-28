@@ -10,7 +10,8 @@
  */
 
  global $post;
- $thePostID=$post->ID;
+
+ $thePostID = woocommerce_get_page_id( 'sklep' );
 
 ?>
 <!doctype html>
@@ -31,7 +32,7 @@
 
 <!-- HERO -->
   <header class=<?php
-    echo '"main-header'.($thePostID==9 ? ' shop"' : '"');
+    echo '"main-header'.($thePostID=='-1' ? ' shop"' : '"');
   ?>>
     <div class="logo-container small-text">
       LOGO
