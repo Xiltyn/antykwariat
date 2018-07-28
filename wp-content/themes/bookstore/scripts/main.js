@@ -1,171 +1,178 @@
-'use strict';
+(function ( $ ) {
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+class App {
 
-(function ($) {
-  var App = function App() {
-    _classCallCheck(this, App);
-  };
-
-  App.initializeApp = function () {
+  static initializeApp = () => {
     Home.initializeHome();
     App.handleScrollButtons();
+    Shop.initializeShop();
   };
 
-  App.handleScrollButtons = function () {
-    var $ScrollButtons = $('.scroll-btn');
+  static handleScrollButtons = () => {
+    const $ScrollButtons = $( '.scroll-btn' );
 
-    $ScrollButtons.on('click', function (evt) {
+    $ScrollButtons.on( 'click', function( evt ) {
       $("html, body").animate({ scrollTop: $($(this).attr('href')).offset().top }, 1000);
+
     });
-  };
+  }
 
-  var Home = function Home() {
-    _classCallCheck(this, Home);
-  };
+}
 
-  Home.activePosition = 0;
+class Home {
 
-  Home.initializeHome = function () {
+  static activePosition = 0;
+
+  static initializeHome = () => {
     Home.Favorites.Gallery.initialize();
   };
 
-  Home.Favorites = {
+  static Favorites = {
     Gallery: {
       constants: {
         cardGap: 24,
-        cardWidth: 320
+        cardWidth: 320,
       },
       container: $('.cards'),
       cards: $('.favorites .gallery .cards .card'),
-      initialize: function initialize() {
+      initialize: () => {
         Home.Favorites.Gallery.assignPositions();
         Home.Favorites.Gallery.setWrapperWidth();
-        Home.Favorites.Gallery.setPosition(Home.activePosition);
+        Home.Favorites.Gallery.setPosition( Home.activePosition );
         Home.Favorites.Gallery.galleryControls();
       },
-      assignPositions: function assignPositions() {
-        var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { debug: false };
-        var cards = Home.Favorites.Gallery.cards;
+      assignPositions: ( options = { debug: false } ) => {
+        const { cards } = Home.Favorites.Gallery;
 
+        cards.hasClass('active') && cards.removeClass( 'active' );
 
-        cards.hasClass('active') && cards.removeClass('active');
+        cards.each( ( index, card ) => {
+          const number = ( index + 1 ) / 3;
 
-        cards.each(function (index, card) {
-          var number = (index + 1) / 3;
+          options.debug && console.log( `Gallery setup loop element :: `, card);
 
-          options.debug && console.log('Gallery setup loop element :: ', card);
-
-          if (number % 1 === 0) {
-            $(cards[index]).attr('data-position', number);
-            $(cards[index - 1]).attr('data-position', number);
-            $(cards[index - 2]).attr('data-position', number);
+          if ( number % 1 === 0 ) {
+            $(cards[index]).attr( 'data-position', number );
+            $(cards[index - 1]).attr( 'data-position', number );
+            $(cards[index - 2]).attr( 'data-position', number )
           }
 
-          if (Home.activePosition === number - 1) {
-            $(cards[index]).addClass('active');
-            $(cards[index - 1]).addClass('active');
-            $(cards[index - 2]).addClass('active');
+          if ( Home.activePosition === ( number - 1 ) ) {
+            $(cards[index]).addClass( 'active' );
+            $(cards[index - 1]).addClass( 'active' );
+            $(cards[index - 2]).addClass( 'active' );
           }
-        });
+
+        } )
       },
-      setWrapperWidth: function setWrapperWidth() {
-        var _Home$Favorites$Galle = Home.Favorites.Gallery,
-            container = _Home$Favorites$Galle.container,
-            cards = _Home$Favorites$Galle.cards,
-            _Home$Favorites$Galle2 = _Home$Favorites$Galle.constants,
-            cardGap = _Home$Favorites$Galle2.cardGap,
-            cardWidth = _Home$Favorites$Galle2.cardWidth;
+      setWrapperWidth: () => {
+        const { container, cards, constants: { cardGap, cardWidth } } = Home.Favorites.Gallery;
 
-
-        container.width(cards.length * (cardWidth + cardGap * 2));
+        container.width( cards.length * ( cardWidth + ( cardGap * 2 ) ) )
       },
-      setPosition: function setPosition(position, direction) {
-        var _Home$Favorites$Galle3 = Home.Favorites.Gallery,
-            cards = _Home$Favorites$Galle3.cards,
-            _Home$Favorites$Galle4 = _Home$Favorites$Galle3.constants,
-            cardWidth = _Home$Favorites$Galle4.cardWidth,
-            cardGap = _Home$Favorites$Galle4.cardGap;
+      setPosition: ( position, direction ) => {
+        const { cards, constants: { cardWidth, cardGap } } = Home.Favorites.Gallery;
+        const windowWidth = $('body').width();
+        const cardSpace = ( 2 * cardGap ) + cardWidth;
+        const activeSpace = 3 * cardSpace;
+        const bodyOffset = ( windowWidth - activeSpace ) / 2;
+        const positionOffset = bodyOffset + ( position * activeSpace );
 
-        var windowWidth = $('body').width();
-        var cardSpace = 2 * cardGap + cardWidth;
-        var activeSpace = 3 * cardSpace;
-        var bodyOffset = (windowWidth - activeSpace) / 2;
-        var positionOffset = bodyOffset + position * activeSpace;
+        console.log( `position ::`, -position );
+        console.log( `windowWidth ::`, windowWidth );
+        console.log( `cardSpace ::`, cardSpace );
+        console.log( `activeSpace ::`, activeSpace );
+        console.log( `bodyOffset ::`, bodyOffset );
+        console.log( `positionOffset ::`, positionOffset );
 
-        console.log('position ::', -position);
-        console.log('windowWidth ::', windowWidth);
-        console.log('cardSpace ::', cardSpace);
-        console.log('activeSpace ::', activeSpace);
-        console.log('bodyOffset ::', bodyOffset);
-        console.log('positionOffset ::', positionOffset);
+        cards.hasClass('active') && cards.removeClass( 'active' );
 
-        cards.hasClass('active') && cards.removeClass('active');
-
-        if (direction === 'right') {
-          cards.each(function (index, card) {
-            setTimeout(function () {
-              $(card).css({
+        if( direction === 'right' ) {
+          cards.each( ( index, card ) => {
+            setTimeout( () => {
+              $(card).css( {
                 'left': positionOffset
-              });
-            }, index * 50);
+              } )
+            }, index * 50 );
 
-            var number = (index + 1) / 3;
+            const number = ( index + 1 ) / 3;
 
-            console.log('number ::', number);
+            console.log( `number ::`, number );
 
-            if (-position === number - 1) {
+            if ( -position === number - 1 ) {
 
-              $(cards[index]).addClass('active');
-              $(cards[index - 1]).addClass('active');
-              $(cards[index - 2]).addClass('active');
+              $(cards[index]).addClass( 'active' );
+              $(cards[index - 1 ]).addClass( 'active' );
+              $(cards[index - 2 ]).addClass( 'active' );
             }
-          });
+          } )
         } else {
-          $(cards.get().reverse()).each(function (index, card) {
-            setTimeout(function () {
-              $(card).css({
+          $(cards.get().reverse()).each( ( index, card ) => {
+            setTimeout( () => {
+              $(card).css( {
                 'left': positionOffset
-              });
-            }, index * 30);
+              } )
+            }, index * 30 );
 
-            var number = (index + 1) / 3;
+            const number = ( index + 1 ) / 3;
 
-            if (-position === number - 1) {
+            if ( -position === ( number - 1 ) ) {
 
-              $(cards[index]).addClass('active');
-              $(cards[index - 1]).addClass('active');
-              $(cards[index - 2]).addClass('active');
+              $(cards[index]).addClass( 'active' );
+              $(cards[index - 1 ]).addClass( 'active' );
+              $(cards[index - 2 ]).addClass( 'active' );
             }
-          });
+          } )
         }
       },
-      updatePosition: function updatePosition(position, direction) {
-        var setPosition = Home.Favorites.Gallery.setPosition;
+      updatePosition: ( position, direction ) => {
+        const { setPosition } = Home.Favorites.Gallery;
 
-
-        setPosition(position, direction);
+        setPosition( position, direction );
         Home.activePosition = position;
       },
-      galleryControls: function galleryControls() {
-        var updatePosition = Home.Favorites.Gallery.updatePosition;
-
-        var arrows = {
+      galleryControls: () => {
+        const { updatePosition } = Home.Favorites.Gallery;
+        const arrows = {
           left: $('svg.left'),
           right: $('svg.right')
         };
 
-        arrows.left.on('click', function () {
-          return updatePosition(Home.activePosition + 1, 'left');
-        });
-        arrows.right.on('click', function () {
-          return updatePosition(Home.activePosition - 1, 'right');
-        });
+        arrows.left.on( 'click', () => updatePosition( Home.activePosition + 1, 'left' ) );
+        arrows.right.on( 'click', () => updatePosition( Home.activePosition - 1, 'right' ) )
       }
     }
-  };
+  }
+
+}
+
+class Shop {
+
+  static _LOCALE = {
+    search: {
+      placeholder: 'Czego szukasz?'
+    }
+  }
+
+  static initializeShop = () => {
+    Shop.setSearchPlaceholder(Shop._LOCALE.search.placeholder);
+  }
+
+  static setSearchPlaceholder = (string, options = { debug: false }) => {
+    const searchField = $('.search-field');
+
+    if(options.debug) {
+      console.log( '==> Shop.setSearchPlaceholder |> function data :: ', { string: string, searchField: searchField } );  
+    }
+
+    searchField.attr('placeholder', string);
+  }
+
+}
+
+App.initializeApp();
 
 
-  App.initializeApp();
-})(window.$);
-//# sourceMappingURL=main.js.map
+
+
+})( window.$ );
