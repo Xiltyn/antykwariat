@@ -1,0 +1,299 @@
+main.checkout {
+  padding: 3.2rem 0 9.6rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: url('images/shop_shapebg.svg');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 45.9% auto;
+
+  font-family: $OPEN_SANS;
+  color: $TEXT_DARK;
+  font-size: 1.2rem;
+
+  a {
+    color: $PRIMARY;
+    padding-left: .4rem;
+    font-weight: 600;
+  }
+
+  article {
+    width: 700px;
+    padding: 32px;
+
+    header {
+      padding-bottom: 4rem;
+      color: #475151;
+      transform: translateX(10%);
+      width: 100%;
+      text-align: center;
+      span {
+        color: $BROWN;
+        margin-left: -2rem;
+        opacity: 0.8;
+      }
+    }
+
+    form.checkout {
+      padding: 24px;
+      margin-top: 16px;
+      background-color: rgba($TEXT_MAIN, .7);
+      box-shadow: 0 0 6px 0 rgba($TEXT_DARK, .3);
+
+      .woocommerce-error {
+        li {
+          padding-bottom: .4rem;
+          font-family: $OPEN_SANS;
+          color: $ERROR;
+          font-size: 1.2rem;
+          text-align: center;
+          font-weight: 600;
+          &:last-of-type {
+            padding-bottom: 2.4rem;
+          }
+        }
+      }
+
+      h3 {
+        padding-bottom: 1.6rem;
+        color: $PRIMARY;
+        width: 100%;
+        text-align: center;
+      }
+
+      .woocommerce-billing-fields__field-wrapper,
+      .woocommerce-shipping-fields__field-wrapper,
+      .woocommerce-additional-fields__field-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+
+        * {
+          outline: none;
+        }
+
+        .form-row {
+          width: 50%;
+          padding: .8rem;
+          margin-top: .4rem;
+          display: flex;
+          flex-wrap: wrap;
+          box-sizing: border-box;
+          label {
+            width: 100%;
+            text-align: left;
+            padding-bottom: .4rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: $TEXT_GREY;
+          }
+          span {
+            width: 100%;
+            input,
+            textarea {
+              width: 100%;
+              border: 2px solid rgba($TEXT_GREY, .4);
+              padding: .4rem .8rem;
+              box-sizing: border-box;
+              transition: all .3s ease-in-out;
+
+              &:focus,
+              &:active {
+                border-color: $PRIMARY;
+              }
+            }
+          }
+        }
+      }
+
+      .woocommerce-additional-fields__field-wrapper {
+        .notes {
+          width: 100%;
+          padding-bottom: 1.6rem;
+          label {
+            width: 100%;
+            padding-bottom: .4rem;
+          }
+        }
+      }
+
+      .woocommerce-checkout-review-order {
+        padding-top: 1.6rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .woocommerce-checkout-payment {
+          width: 100%;
+          font-family: $OPEN_SANS;
+          color: $TEXT_GREY;
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          font-weight: 600;
+
+          button {
+            position: relative;
+            width: 320px;
+            display: block;
+            padding: .8rem;
+            margin: 3.2rem auto 1.6rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: rgba($TEXT_GREY, .7);
+            background-color: $TEXT_MAIN;
+            border: solid 2px rgba($TEXT_GREY, .7);
+            border-radius: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 200;
+            &:hover {
+              background-color: $PRIMARY;
+              color: $TEXT_MAIN;
+              border: solid 2px $PRIMARY;
+            }
+          }
+        }
+
+        table {
+          display: block;
+          margin: auto;
+          width: auto;
+          font-family: $OPEN_SANS;
+          color: $TEXT_GREY;
+          font-size: 1.2rem;
+          line-height: 2.4rem;
+          font-weight: 600;
+
+          & > * {
+            border: 2px solid $PRIMARY;
+            width: 100%;
+          }
+
+          th {
+            text-align: right;
+            padding-right: .8rem;
+          }
+
+          td {
+            padding-left: .8rem;
+          }
+
+          .cart-item {
+            .product-name {
+              text-align: right;
+            }
+          }
+
+          thead {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+            margin-bottom: .4rem;
+            background-color: $PRIMARY;
+            color: $TEXT_MAIN;
+          }
+        }
+      }
+    }
+  }
+
+  aside {
+    width: 176px;
+    padding: 0.8rem 1.2rem;
+    margin-top: 13.2rem;
+    overflow: hidden;
+    box-shadow: 0 0 6px 0 rgba($TEXT_DARK, .3);
+    section {
+      padding-bottom: 0.8rem;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px dashed rgba($TEXT_GREY, .3);
+      &:last-of-type {
+        border-bottom: none;
+      }
+      ul {
+        width: 100%;
+        li {
+          position: relative;
+          padding: 0.2rem 0;
+          margin-bottom: 0.2rem;
+          width: 100%;
+          a {
+            width: 100%;
+            color: $TEXT_GREY;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease-in-out;
+          }
+          &:after {
+            position: absolute;
+            content: '';
+            height: 1px;
+            width: 0;
+            left: 50%;
+            bottom: 0;
+            background: $PRIMARY;
+            transition: all 0.3s ease-in-out;
+          }
+          &:hover {
+            a {
+              color: $PRIMARY;
+            }
+            &:after {
+              width: 100%;
+              left: 0;
+            }
+          }
+        }
+      }
+      &.widget_search,
+      &.widget_product_search {
+        form {
+          width: 100%;
+          &:after,
+          &:before {
+            display: none;
+          }
+          label {
+            span {
+              display: none;
+            }
+          }
+          .search-submit,
+          button {
+            position: relative;
+            width: 100%;
+            padding: 0.4rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: rgba($TEXT_GREY, .7);
+            background-color: $TEXT_MAIN;
+            border-radius: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 200;
+            &:hover {
+              background-color: $PRIMARY;
+              color: $TEXT_MAIN;
+            }
+          }
+        }
+      }
+      h2 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: normal;
+        color: $TEXT_GREY;
+        padding-bottom: 0.8rem;
+      }
+    }
+    // display: none;
+  }
+
+}
