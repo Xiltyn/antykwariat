@@ -35,7 +35,63 @@ main.checkout {
       }
     }
 
-    form.checkout {
+    .woocommerce-order {
+      text-align: center;
+
+      p {
+        padding-bottom: .4rem;
+      }
+
+      li {
+        padding-bottom: .2rem;
+      }
+      
+      table {
+        display: block;
+        margin: auto;
+        width: 50%;
+        font-family: $OPEN_SANS;
+        color: $TEXT_GREY;
+        font-size: 1.2rem;
+        line-height: 2.4rem;
+        font-weight: 600;
+
+        & > * {
+          border: 2px solid $PRIMARY;
+          width: 100%;
+        }
+
+        th {
+          text-align: right;
+          padding-right: .8rem;
+        }
+
+        td {
+          padding-left: .8rem;
+        }
+
+        .cart-item {
+          .product-name {
+            text-align: right;
+          }
+        }
+
+        thead {
+          font-size: 1.6rem;
+          line-height: 2.4rem;
+          margin-bottom: .4rem;
+          background-color: $PRIMARY;
+          color: $TEXT_MAIN;
+        }
+      }
+      h2 {
+        width: 100%;
+        padding: 1.6rem 0 2.4rem;
+      }
+    }
+
+    form.checkout,
+    .woocommerce-order {
       padding: 24px;
       margin-top: 16px;
       background-color: rgba($TEXT_MAIN, .7);
