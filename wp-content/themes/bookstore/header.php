@@ -31,7 +31,7 @@
 
 
 <!-- HERO -->
-  <header class="main-header">
+  <header class="main-header <?php echo $post->ID == 39 ? 'contact' : '' ?>">
     <div class="logo-container small-text">
       LOGO
     </div>

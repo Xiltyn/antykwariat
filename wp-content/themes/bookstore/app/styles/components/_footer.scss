@@ -6,6 +6,31 @@
   background-size: cover;
   overflow: hidden;
 
+  &.contact {
+    position: relative;
+    background: $TEXT_DARK;
+
+    &:after {
+      position: absolute;
+      content: '';
+      background: url('images/contact_background.jpg');
+      background-size: cover;
+      background-position: 0 60%;
+      top: 0;
+      right: 0;
+      width: 54.3%;
+      height: 100%;
+      mask: url('images/footer_shapebg.svg');
+      mask-repeat: no-repeat;
+      mask-type: luminance;
+      z-index: 70;
+    }
+    .bg-shape {
+      display: none;
+    }
+  }
+
+
   .content {
     padding: 8rem;
     display: flex;

@@ -1,0 +1,103 @@
+.contact-page {
+  position: relative;
+  height: 97vh;
+  background: url('images/contact_background_top.jpg');
+  background-size: 124.5%;
+  background-position: 46.64% 99%;
+
+  .contact-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6.4rem 3.2rem;
+
+    z-index: $LAYER_5;
+
+
+    .left-col {
+      width: 30%;
+      .credentials,
+      .who-are-we {
+        h3 {
+          color: $TEXT_MAIN;
+          padding-bottom: 16px;
+        }
+        p {
+          color: $TEXT_MAIN;
+        }
+      }
+      .credentials {
+        &-list {
+          display: flex;
+          flex-direction: column;
+          padding-bottom: 32px;
+
+          .list-el {
+            position: relative;
+            color: $TEXT_MAIN;
+            font-size: 14px;
+            line-height: 24px;
+            padding-left: 32px;
+            &:after {
+              position: absolute;
+              content: '';
+              left: 0;
+              top: .4rem;
+              width: 24px;
+              height: 24px;
+            }
+            &.phone:after {
+              content: url('images/icn-contact-phone.svg');
+            }
+            &.email:after {
+              content: url('images/icn-contact-mail.svg');
+            }
+            &.address:after {
+              content: url('images/icn-contact-address.svg');
+            }
+            &.details:after {
+              content: url('images/icn-contact-pin.svg');
+            }
+          }
+        }
+      }
+    }
+
+    .right-col {
+      width: 60%;
+      padding: 0 9.6rem;
+      box-sizing: border-box;
+
+      .map-wrapper {
+        h3 {
+          color: $TEXT_MAIN;
+          padding-bottom: 1.6rem;
+        }
+        p {
+          color: $TEXT_MAIN;
+          padding-bottom: 1.6rem;
+        }
+
+        .mapouter {
+          opacity: .5;
+          transition: all .3s ease-in-out;
+          
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+      }
+    }
+  }
+
+  .bg-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    width: 86.7%;
+    z-index: $LAYER_2;
+  }
+}

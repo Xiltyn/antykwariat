@@ -11,7 +11,7 @@
 
 ?>
 
-<footer class="footer">
+<footer class="footer <?php echo $post->ID == 39 ? 'contact' : '' ?>">
 
 <div class="content">
 	<div class="left site-info">
