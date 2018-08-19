@@ -45,7 +45,7 @@ main.checkout {
       li {
         padding-bottom: .2rem;
       }
-      
+
       table {
         display: block;
         margin: auto;
@@ -350,6 +350,105 @@ main.checkout {
       }
     }
     // display: none;
+  }
+
+  .woocommerce {
+    margin-top: 24px;
+    .woocommerce-cart-form {
+      font-size: 16px;
+      margin-top: 4px;
+      margin-left: 64px;
+      padding: 0;
+      table {
+        box-shadow: 0 0 6px 0 rgba($TEXT_DARK, .3);
+        & > * {
+          border: 2px solid $PRIMARY;
+          text-align: center;
+
+          td {
+            border: 2px solid $PRIMARY;
+          }
+        }
+        thead {
+          background: $PRIMARY;
+          color: $TEXT_MAIN;
+          font-weight: 800;
+        }
+        th,td {
+          padding: 6px;
+
+          &.product-remove {
+            position: relative;
+            box-sizing: border-box;
+            padding: 0 24px;
+            & > a {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              color: $ERROR;
+              font-size: 32px;
+              transform: translate(-50%, -50%);
+            }
+          }
+        }
+
+        .woocommerce-cart-form__cart-item {
+          margin-bottom: 4px;
+        }
+      }
+      .product-thumbnail > a > img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .cart-collaterals {
+      margin-left: 64px;
+      margin-top: 16px;
+      padding-bottom: 12px;
+      box-sizing: border-box;
+      background: rgba($TEXT_GREY, .9);
+
+      h2 {
+        color: $TEXT_MAIN;
+        padding: 12px 8px 16px;
+        margin-bottom: 12px;
+        border-bottom: solid 2px $TEXT_MAIN;
+        text-align: center;
+      }
+
+      table {
+        color: $TEXT_MAIN;
+        margin-left: 32%;
+        th, td {
+          padding: 4px;
+          text-align: left;
+        }
+
+        .woocommerce-shipping-calculator {
+          margin-top: 4px;
+        }
+      }
+      .wc-proceed-to-checkout {
+        padding: 6px 0;
+        a {
+          display: block;
+          margin: auto;
+          width: 120px;
+          text-align: center;
+          font-weight: 800;
+          text-transform: uppercase;
+          color: rgba($TEXT_GREY, .9);
+          background: $PRIMARY;
+          padding: 6px 9px;
+          transition: all .3s ease-in-out;
+
+          &:hover {
+            color: $PRIMARY;
+            background: none;
+          }
+        }
+      }
+    }
   }
 
 }

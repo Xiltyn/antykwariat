@@ -17,19 +17,7 @@ get_header();
 
 <section class="hero">
  <form class="search-form">
-	 <label for="search">Witaj w naszym antykwariacie</label>
-	 <input class="search" id="search" name="search" placeholder="Witaj w naszym antykwariacie" type="text">
-	 <svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-		 <g id="icn::search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-			 <g>
-				 <path d="M63.8592,32 C63.8592,49.5872379 49.5872379,63.8592 32,63.8592 C14.4127621,63.8592 0.1408,49.5872379 0.1408,32 C0.1408,14.4127621 14.4127621,0.1408 32,0.1408 C49.5872379,0.1408 63.8592,14.4127621 63.8592,32 Z" id="Shape" fill="#60BDC0"></path>
-				 <g id="magnifier" transform="translate(16.640000, 16.640000)" stroke="#FFFFFF">
-					 <ellipse id="Oval" cx="18.1098721" cy="12.5952" rx="12.5394169" ry="12.5715692"></ellipse>
-					 <path d="M9.00386701,21.7324308 L0.0549974425,30.6963692" id="Shape" stroke-width="3"></path>
-				 </g>
-			 </g>
-		 </g>
-	 </svg>
+   <?php get_product_search_form() ?>
  </form>
  <div class="filters">
 	 <a href="#favourites" class="scroll-btn">
@@ -46,38 +34,33 @@ get_header();
 
 	 <!-- FILTERS LIST -->
 	 <ul class="filters-list">
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
-		 <li class="filter">
-			 <img src="<?php echo get_template_directory_uri(); ?>/images/icn-category_generic.svg" alt="kategoria">
-			 <p>Kategoria</p>
-		 </li>
+     <?php
+
+   $taxonomy     = 'product_cat';
+   $orderby      = 'name';
+   $show_count   = 0;      // 1 for yes, 0 for no
+   $pad_counts   = 0;      // 1 for yes, 0 for no
+   $hierarchical = 1;      // 1 for yes, 0 for no
+   $title        = '';
+   $empty        = 0;
+
+   $args = array(
+          'taxonomy'     => $taxonomy,
+          'orderby'      => $orderby,
+          'show_count'   => $show_count,
+          'pad_counts'   => $pad_counts,
+          'hierarchical' => $hierarchical,
+          'title_li'     => $title,
+          'hide_empty'   => $empty
+   );
+  $all_categories = get_categories( $args );
+  foreach ($all_categories as $cat) {
+     if($cat->category_parent == 0) {
+         $category_id = $cat->term_id;
+         echo '<li class="filter"><p><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></p></li>';
+     }
+ }
+ ?>
 	 </ul>
  </div>
 </section>
@@ -89,7 +72,7 @@ get_header();
 <section class="favorites" id="favourites">
  <div class="favorites-wrapper">
 	 <h2 class="section-header favorites-header">
-		 Najczęściej <span>wybierane</span>
+		 Ostatnio <span>dodane</span>
 	 </h2>
 	 <div class="gallery">
 		 <div class="gallery-wrapper">
@@ -114,402 +97,81 @@ get_header();
 				 </svg>
 			 </nav>
 			 <ul class="cards">
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
-				 <li class="card">
-					 <div class="header">
-						 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-					 </div>
-					 <div class="content">
-						 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-						 <div class="info-box">
-							 <h3>
-								 A Brief History Of Creation
-							 </h3>
-							 <p>
-								 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-							 </p>
-						 </div>
-						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-										 </g>
-									 </g>
-								 </g>
-							 </g>
-						 </svg>
-					 </div>
-					 <div class="footer">
-						 <ul class="taglist">
-							 <li>starodruki</li>
-						 </ul>
-						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-					 </div>
-				 </li>
+
+         <?php
+        		$args = array(
+        			'post_type' => 'product',
+        			'posts_per_page' => 12
+        			);
+
+
+        		$loop = new WP_Query( $args );
+        		if ( $loop->have_posts() ) {
+        			while ( $loop->have_posts() ) : $loop->the_post();?>
+
+              <li class="card">
+     					 <div class="header">
+                 <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
+     						 <img src="<?php echo $image[0]; ?>" >
+     					 </div>
+     					 <div class="content">
+                 <a href="/?add-to-cart=<?php echo $product->get_id() ?>">
+                   <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
+                 </a>
+     						 <div class="info-box">
+     							 <h3>
+     								 <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+     							 </h3>
+     							 <p>
+     								 <?php the_content() ?>
+     							 </p>
+     						 </div>
+     						 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+     							 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+     								 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
+     									 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
+     										 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
+     											 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
+     										 </g>
+     									 </g>
+     								 </g>
+     							 </g>
+     						 </svg>
+     					 </div>
+     					 <div class="footer">
+
+
+                      <?php
+                      $terms = get_the_terms( $post->ID, 'product_cat' );
+
+        if ( $terms && ! is_wp_error( $terms ) ) : //only displayed if the product has at least one category
+
+                $cat_links = array();
+
+                foreach ( $terms as $term ) {
+                        $cat_links[] = '<a class="label bg-terciary" href="'.get_site_url().'/?product_cat='.$term->slug.'" title="'.$term->name.'">'.$term->name.'</a>';
+                }
+
+                $on_cat = join( " > ", $cat_links );
+        ?>
+
+        <ul class="taglist">
+          <?php echo $on_cat; ?>
+        </ul>
+      <?php endif; ?>
+
+
+     						 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
+     					 </div>
+     				 </li>
+
+            <?php endwhile;
+        		} else {
+        			echo __( 'No products found' );
+        		}
+        		wp_reset_postdata();
+        	?>
+
 			 </ul>
 		 </div>
 	 </div>
@@ -534,7 +196,7 @@ get_header();
 <section class="comics" id="comics">
 <div class="comics-wrapper">
  <h2 class="section-header favorites-header">
-	 Nasze <span>komiksy</span>
+	 Wyróżniony <span>produkt</span>
  </h2>
 
  <div class="content">
@@ -543,39 +205,9 @@ get_header();
 		 …
 	 </div>
 	 <div class="details">
-		 <li class="card">
-			 <div class="header">
-				 <img src="<?php echo get_template_directory_uri(); ?>/images/example.jpg">
-			 </div>
-			 <div class="content">
-				 <img class="icn-buy" src="<?php echo get_template_directory_uri(); ?>/images/icn-buy_green.svg" alt="Click to buy!">
-				 <div class="info-box">
-					 <h3>
-						 A Brief History Of Creation
-					 </h3>
-					 <p>
-						 With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. He is mentioned twice in the Encyclopaedia Britannica as someone’s teacher. There could be no greater lapse…
-					 </p>
-				 </div>
-				 <svg class="bg-shape" width="322px" height="329px" viewBox="0 0 322 329" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-					 <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-						 <g id="Desktop-HD-::-Popular" transform="translate(-562.000000, -344.000000)" fill="#FFFFFF">
-							 <g id="carousel_2" transform="translate(0.000000, 93.000000)">
-								 <g id="Item-card-Copy" transform="translate(562.000000, 142.000000)">
-									 <path d="M0.654744013,109.128622 C43.3047362,109.128622 80.8935443,146.030199 160.76668,146.030199 C240.639815,146.030199 284.444393,109.128622 320.876167,109.128622 C321.052023,109.128622 321.093349,437.341023 320.876167,437.336206 C184.112796,440.478584 132.439073,383.54106 0.657192159,388.867654 C0.938233048,389.337696 0.944807104,109.419522 0.654744013,109.128622 Z" id="Path-6"></path>
-								 </g>
-							 </g>
-						 </g>
-					 </g>
-				 </svg>
-			 </div>
-			 <div class="footer">
-				 <ul class="taglist">
-					 <li>starodruki</li>
-				 </ul>
-				 <img class="icn-wishlist" src="<?php echo get_template_directory_uri(); ?>/images/icn-whislist_active.svg" alt="Click to buy!">
-			 </div>
-		 </li>
+
+     <?php echo do_shortcode('[top_rated_products limit="1"]') ?>
+
 	 </div>
  </div>
 </div>
@@ -603,20 +235,27 @@ get_header();
  </h2>
 
  <div class="content">
+   <ul class="comments-list">
 
-	 <ul class="comments-list">
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-		 <li class="comment small-text">With the exception of Nietzsche, no other madman has contributed so much to human sanity as has Louis Althusser. </li>
-	 </ul>
+     <?php
+        $args = array(
+           // args here
+        );
 
+        // The Query
+        $comments_query = new WP_Comment_Query;
+        $comments = $comments_query->query( $args );
+
+        // Comment Loop
+        if ( $comments ) {
+        	foreach ( $comments as $comment ) {
+        		echo '<li class="comment small-text">' . $comment->comment_content . '<br><span>'. $comment->comment_author . '|'. get_the_title($comment->comment_post_ID) . '</span></li>';
+        	}
+        } else {
+        	echo 'No comments found.';
+        }
+    ?>
+ </ul>
  </div>
 </div>
 

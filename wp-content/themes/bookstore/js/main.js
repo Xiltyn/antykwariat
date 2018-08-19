@@ -40,7 +40,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       container: $('.cards'),
       cards: $('.favorites .gallery .cards .card'),
       initialize: function initialize() {
-        Home.Favorites.Gallery.assignPositions();
+        Home.Favorites.Gallery.assignPositions({ debug: true });
         Home.Favorites.Gallery.setWrapperWidth();
         Home.Favorites.Gallery.setPosition(Home.activePosition);
         Home.Favorites.Gallery.galleryControls();

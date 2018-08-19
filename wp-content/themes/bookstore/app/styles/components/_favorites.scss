@@ -115,7 +115,15 @@
 
               h3 {
                 padding-bottom: 2.4rem;
-                color: $TEXT_GREY;
+                a {
+                  color: $TEXT_GREY;
+                  border-bottom: 2px solid transparent;
+                  transition: all .3s ease-in-out;
+
+                  &:hover {
+                    border-bottom: 2px solid $TEXT_GREY;
+                  }
+                }
               }
               p {
                 color: $TEXT_GREY;
@@ -133,6 +141,7 @@
               position: absolute;
               height: auto;
               width: 102%;
+              pointer-events: none;
               z-index: $LAYER_4;
             }
           }
@@ -144,15 +153,18 @@
 
             .taglist {
               padding: 7.2rem 1.6rem 0;
-              li {
+              color: $TEXT_MAIN;
+              a {
                 color: $TEXT_MAIN;
                 font-size: 1.2rem;
                 text-transform: capitalize;
+                border-bottom: 2px solid transparent;
+                transition: all .3s ease-in-out;
 
-                &:before {
-                  content: '>';
-                  padding-right: .4rem;
+                &:hover {
+                  border-bottom: 2px solid $TEXT_MAIN;
                 }
+
               }
             }
 
@@ -160,6 +172,7 @@
               position: absolute;
               bottom: 1.2rem;
               right: 1.2rem;
+              display: none;
             }
           }
         }

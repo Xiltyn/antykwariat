@@ -12,15 +12,72 @@
     max-width: 560px;
     height: 4.8rem;
     left: 50%;
-    top: 50%;
+    top: 40%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     transform: translate(-50%, -50%);
 
-    label {
-      display: none;
-    }
+      &:after,
+      &:before {
+        display: none;
+      }
+      label {
+        display: none;
+        span {
+          display: none;
+        }
+      }
+
+      input {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 3.2rem;
+        padding: 0 2.4rem;
+        color: $TEXT_MAIN;
+        outline: none;
+        background: rgba($PRIMARY, .7);
+        border: .2rem solid $PRIMARY;
+        border-radius: 3.2rem;
+        box-sizing: border-box;
+        transition: .3s all ease-in-out;
+
+        &::placeholder {
+          color: $TEXT_MAIN;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          outline: none;
+          background: $PRIMARY;
+        }
+      }
+
+      .search-submit,
+      button {
+        position: relative;
+        padding: 0.4rem;
+        margin-top: 1.6rem;
+        width: 240px;
+        cursor: pointer;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: $TEXT_MAIN;
+        background-color: rgba($PRIMARY,.3);
+        border: 2px solid $TEXT_MAIN;
+        border-radius: 1.6rem;
+        transition: all 0.3s ease-in-out;
+        z-index: 200;
+        &:hover {
+          background-color: $PRIMARY;
+          color: $TEXT_MAIN;
+        }
+      }
 
     .search {
       position: relative;
@@ -128,19 +185,20 @@
         flex-direction: column;
         align-items: center;
 
-        img {
-          padding-bottom: .8rem;
-        }
-
         p {
           font-size: 1.4rem;
-          color: $TEXT_DARK;
-          transition: .3s all ease-in-out;
+          line-height: 1.6rem;
+          text-align: center;
+          font-weight: 800;
+          a {
+            transition: .3s all ease-in-out;
+            color: $TEXT_DARK;
+          }
         }
 
         &:hover {
 
-          p {
+          p > a {
             color: $PRIMARY;
           }
         }

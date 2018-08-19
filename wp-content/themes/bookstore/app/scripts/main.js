@@ -36,7 +36,7 @@ class Home {
       container: $('.cards'),
       cards: $('.favorites .gallery .cards .card'),
       initialize: () => {
-        Home.Favorites.Gallery.assignPositions();
+        Home.Favorites.Gallery.assignPositions({debug:true});
         Home.Favorites.Gallery.setWrapperWidth();
         Home.Favorites.Gallery.setPosition( Home.activePosition );
         Home.Favorites.Gallery.galleryControls();
@@ -162,7 +162,7 @@ class Shop {
     const searchField = $('.search-field');
 
     if(options.debug) {
-      console.log( '==> Shop.setSearchPlaceholder |> function data :: ', { string: string, searchField: searchField } );  
+      console.log( '==> Shop.setSearchPlaceholder |> function data :: ', { string: string, searchField: searchField } );
     }
 
     searchField.attr('placeholder', string);
