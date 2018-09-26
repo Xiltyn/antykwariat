@@ -17,10 +17,7 @@
 	<div class="left site-info">
 		<ul class="menu">
 			<h4>Mapa Strony</h4>
-			<li class="small-text">Sklep</li>
-			<li class="small-text">Strona Główna</li>
-			<li class="small-text">O Nas</li>
-			<li class="small-text">Kontakt</li>
+			<?php wp_nav_menu( array( 'theme_location' => 'menu-2' ) ); ?>
 		</ul>
 		<ul class="social-links">
 			<h4>Śledź nas na</h4>

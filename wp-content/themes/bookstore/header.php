@@ -48,11 +48,12 @@
 
       wp_nav_menu(array(
         'menu_class' => 'main-nav small-text',
+        'theme_location' => 'menu-1',
       ));
 
     ?>
 
     <div class="cart-widget small-text">
-      11.87,-
+
     </div>
   </header>

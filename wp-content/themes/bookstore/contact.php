@@ -25,17 +25,16 @@ get_header();
 						</h3>
 						<ul class="credentials-list">
 							<li class="list-el phone">
-								+48 000 000 000
+								<?php the_field('phone_number'); ?>
 							</li>
 							<li class="list-el email">
-								libby.olson@yahoo.com
+								<?php the_field('email'); ?>
 							</li>
 							<li class="list-el address">
-								9965 Oleta Flats
+								<?php the_field('address'); ?>
 							</li>
 							<li class="list-el details">
-								NIP: 231230851<br>
-								REGON: 12502834
+								<?php the_field('extra_info'); ?>
 							</li>
 						</ul>
 					</div>
@@ -44,22 +43,20 @@ get_header();
 							Kim jesteśmy
 						</h3>
 						<p>
-							We’ve all heard how crucial it is to set intentions, goals and targets. Powerful goals electrify us. Clear intentions energize and pull us forward.
-							Without a clearcut intention, we’re reactive and don’t get around to doing the important things when we want them done. Instead, we spend our time fighting random fires.
-							Without clear intentions, anything might happen. And usually does.
-							Literally, intentions are like the steering wheel on your car. Their whole purpose is to give you control over where you’re going. But when setting intentions or goals, keep in mind that if you can’t measure it, you can’t manage it.
-							Now, it’s good to have intentions at more than one level. When we get up into the more conceptual intentions, such as “I will contribute to the wellbeing of those around me,” these become like a mission statement.
+							<?php the_field('who_are_we_description'); ?>
 						</p>
 					</div>
 				</div>
 				<div class="right-col">
 					<div class="map-wrapper">
 						<h3>
-							Nasz sklep w Krakowie
+							<?php the_field('our_shops_header'); ?>
 						</h3>
 						<p>
-						So many of us are demotivated to achieve anything. Such people are not enthusiastic about anything. They don’t want to work towards any goal. Nothing motivates them to work. Why is it so? Why many of us are not motivated? What is wrong?</p>
-						<div class="mapouter"><div class="gmap_canvas"><iframe width="516" height="296" id="gmap_canvas" src="https://maps.google.com/maps?q=pauli%C5%84ska%2014%2C%20krak%C3%B3w%2C%20POLAND&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/google-maps/">pureblack.de</a></div><style>.mapouter{text-align:right;height:296px;width:516px;}.gmap_canvas {overflow:hidden;background:none!important;height:296px;width:516px;}</style></div>
+						<?php the_field('our_shops_description'); ?>
+					</p>
+						<div class="mapouter" style="margin-bottom:16px"><div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.0174938827045!2d19.929408415350217!3d50.06723402278451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0890555cff%3A0x9b09a7fc56ea1b67!2sStefana+Batorego%2C+30-001+Krak%C3%B3w!5e0!3m2!1sen!2spl!4v1537997288400" width="560" height="200" frameborder="0" style="border:0" allowfullscreen></iframe><a href="https://www.pureblack.de/google-maps/">pureblack.de</a></div><style>.mapouter{text-align:right;height:130px;width:516px;}.gmap_canvas {overflow:hidden;background:none!important;height:130px;width:516px;}</style></div>
+						<div class="mapouter"><div class="gmap_canvas"><iframe width="516" height="130" id="gmap_canvas2" src="https://maps.google.com/maps?q=pauli%C5%84ska%2014%2C%20krak%C3%B3w%2C%20POLAND&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de/google-maps/">pureblack.de</a></div><style>.mapouter{text-align:right;height:130px;width:516px;}.gmap_canvas {overflow:hidden;background:none!important;height:130px;width:516px;}</style></div>
 					</div>
 				</div>
 			</div>
